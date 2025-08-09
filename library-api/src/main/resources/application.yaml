@@ -1,9 +1,9 @@
 # application.yaml (base config)
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/librarydb
-    username: postgres
-    password: yourpassword
+    url: jdbc:postgresql://db:5432/libsys
+    username: libsys_user
+    password: welcome2025
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

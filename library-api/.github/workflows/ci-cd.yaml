@@ -14,9 +14,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: librarydb
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: libsys
+          POSTGRES_USER: libsys_user
+          POSTGRES_PASSWORD: welcome2025
         ports:
           - 5432:5432
         options: >-

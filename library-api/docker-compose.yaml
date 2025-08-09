@@ -6,9 +6,9 @@ services:
     container_name: library_postgres
     restart: always
     environment:
-      POSTGRES_DB: librarydb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: libsys
+      POSTGRES_USER: libsys_user
+      POSTGRES_PASSWORD: welcome2025
     ports:
       - "5432:5432"
     volumes:
@@ -23,9 +23,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/librarydb
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/libsys
+      SPRING_DATASOURCE_USERNAME: libsys_user
+      SPRING_DATASOURCE_PASSWORD: welcome2025
     depends_on:
       - postgres
 
