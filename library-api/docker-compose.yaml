@@ -25,7 +25,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/libsys
       SPRING_DATASOURCE_USERNAME: libsys_user
-      SPRING_DATASOURCE_PASSWORD: welcome2025
+      SPRING_DATASOURCE_PASSWORD: ENC(LjaMOG8ePn4tCShEmup8DNcS0TepkpNuhuwaCw3c2O5y5mjMTlix0EdFKn2hmFGJ)
     depends_on:
       - postgres
 

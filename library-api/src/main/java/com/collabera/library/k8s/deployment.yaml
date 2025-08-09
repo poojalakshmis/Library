@@ -40,13 +40,7 @@ spec:
           image: postgres:15
           ports:
             - containerPort: 5432
-          env:
-            - name: POSTGRES_DB
-              value: librarydb
-            - name: POSTGRES_USER
-              value: libraryuser
-            - name: POSTGRES_PASSWORD
-              value: librarypass
+
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
@@ -82,13 +76,22 @@ spec:
     spec:
       containers:
         - name: library-api
-          image: YOUR_DOCKERHUB_USERNAME/library-api:latest
+          image: poojal28/library-api:latest
           ports:
             - containerPort: 8080
           env:
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://postgres-service:5432/libsys
-            - name: libsys_user
-              value: libsys_user
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: welcome2025
+            - name: POSTGRES_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_DATABASE_URL
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: POSTGRES_PASSWORD
